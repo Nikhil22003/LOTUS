@@ -11,9 +11,8 @@
             padding: 0;
             background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
         }
         .container {
             text-align: center;
@@ -21,6 +20,7 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
         .logo-title {
             display: flex;
@@ -61,37 +61,38 @@
             color: #555;
             margin-bottom: 30px;
         }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-title">
-            <img src="lotus.png" alt="Lotus Logo">
+            <img src="lotus-logo.png" alt="Lotus Logo">
             <h1>Lotus</h1>
         </div>
         <p class="tagline">Enabling Semantic Queries with LLMs Over Tables of Unstructured and Structured Data</p>
 
-        <!-- Dropdown for Demo -->
-        <button class="dropdown-btn" onclick="toggleDropdown()">Demo</button>
-        <div class="dropdown-content" id="demo-dropdown">
-            <!-- Embed Python Code in Gradio or backend API -->
-            <iframe src="https://gradio-app-link" width="100%" height="600px"></iframe>
-        </div>
-
-        <!-- External Links -->
+        <!-- Links -->
+        <button class="dropdown-btn" onclick="scrollToDemo()">Demo</button>
         <a href="https://discord.gg/df7ZZ4JJ" class="btn-link">Discord</a>
         <a href="https://github.com/TAG-Research/lotus" class="btn-link">Github</a>
         <a href="https://arxiv.org/pdf/2407.11418" class="btn-link">Paper</a>
     </div>
 
+    <!-- Demo Section -->
+    <div id="demo-section" class="dropdown-content">
+        <iframe src="http://localhost:7860" title="Demo App"></iframe>
+    </div>
+
     <script>
-        function toggleDropdown() {
-            var dropdown = document.getElementById("demo-dropdown");
-            if (dropdown.style.display === "block") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "block";
-            }
+        function scrollToDemo() {
+            var demoSection = document.getElementById("demo-section");
+            demoSection.style.display = "block"; // Show the demo section
+            demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to the section
         }
     </script>
 </body>
