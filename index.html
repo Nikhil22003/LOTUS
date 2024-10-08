@@ -5,40 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOTUS</title>
     <style>
+        :root {
+            --fern-green: #4F7942;
+            --light-fern: #E6F0E2;
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff;
+            background-color: var(--light-fern);
+            font-size: 62.5%; /* This sets 1em to 10px */
         }
         .container {
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 16px;
         }
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 16px 0 8px;
+            background-color: var(--fern-green);
+        }
+        .logo-title {
+            display: flex;
+            align-items: center;
         }
         .logo img {
-            width: 50px;
-            height: 50px;
-        }
-        .title {
-            text-align: center;
-            flex-grow: 1;
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
         }
         .title h1 {
-            font-size: 2.5em;
-            color: #007bff;
+            font-size: 2em;
+            color: black;
+            margin: 0;
         }
         .tagline {
-            font-size: 1.25em;
-            color: #555;
+            font-size: 1em;
+            color: var(--fern-green);
             text-align: center;
-            margin-bottom: 35px;
+            margin: 8px 0 20px;
             font-style: italic;
         }
         .navbar {
@@ -46,7 +54,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: #ffffff;
+            background-color: var(--fern-green);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 1000;
             display: none;
@@ -55,137 +63,155 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 8px 16px;
         }
         .navbar-logo img {
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
         }
         .navbar-links a {
-            margin-left: 15px;
+            margin-left: 12px;
             text-decoration: none;
-            color: #007bff;
+            color: white;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .btn-link, .dropdown-btn {
             display: inline-block;
-            padding: 15px 25px;
-            margin: 10px;
-            background-color: #007bff;
+            padding: 12px 20px;
+            margin: 8px;
+            background-color: var(--fern-green);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
             transition: background-color 0.3s ease;
         }
         .btn-link:hover, .dropdown-btn:hover {
-            background-color: #0056b3;
+            background-color: #3A5A31;
         }
         .dropdown-content {
             display: none;
-            background-color: #eef6ff;
-            padding: 30px;
+            background-color: var(--light-fern);
+            padding: 24px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
         }
         iframe {
             width: 100%;
-            height: 600px;
+            height: 480px;
             border: none;
         }
         .research-details {
-            margin-top: 50px;
+            margin-top: 40px;
             color: #333;
+            font-size: 0.9em;
         }
         .research-details h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #007bff;
+            font-size: 1.8em;
+            margin-bottom: 16px;
+            color: var(--fern-green);
+        }
+        .research-details h3 {
+            font-size: 1.4em;
+            color: var(--fern-green);
         }
         .research-details img {
             width: 100%;
-            margin-bottom: 25px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            max-width: 600px;
+            margin-bottom: 20px;
+            border: 1px solid var(--fern-green);
+            border-radius: 6px;
         }
         .research-details table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
-            background-color: #eef6ff;
+            margin-bottom: 24px;
+            background-color: var(--light-fern);
         }
         .research-details table, .research-details th, .research-details td {
-            border: 1px solid #007bff;
+            border: 1px solid var(--fern-green);
         }
         .research-details th, .research-details td {
-            padding: 15px;
+            padding: 12px;
             text-align: left;
         }
         .research-details th {
-            background-color: #007bff;
+            background-color: var(--fern-green);
             color: white;
         }
         .contact-section {
-            background-color: #007bff;
+            background-color: var(--fern-green);
             color: white;
-            padding: 50px 0;
+            padding: 40px 0;
             text-align: center;
         }
         .contact-section h2 {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            font-size: 1.6em;
         }
         .contact-form {
-            max-width: 500px;
+            max-width: 400px;
             margin: 0 auto;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 8px;
+            margin-bottom: 12px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
         .contact-form button {
             background-color: white;
-            color: #007bff;
+            color: var(--fern-green);
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <div class="title">
-                <h1>LOTUS</h1>
-            </div>
-            <div class="logo">
-                <img src="lotus.png" alt="Lotus Logo">
+            <div class="logo-title">
+                <div class="logo">
+                    <img src="lotus.png" alt="Lotus Logo">
+                </div>
+                <div class="title">
+                    <h1>LOTUS</h1>
+                </div>
             </div>
         </header>
         
         <p class="tagline">Enabling Semantic Queries with LLMs Over Tables of Unstructured and Structured Data</p>
 
         <!-- Links -->
-        <button class="dropdown-btn" onclick="toggleDemo()">Demo</button>
-        <a href="https://discord.gg/df7ZZ4JJ" class="btn-link">Discord</a>
-        <a href="https://github.com/TAG-Research/lotus" class="btn-link">Github</a>
-        <a href="https://arxiv.org/pdf/2407.11418" class="btn-link">Paper</a>
+        <div class="btn-container">
+            <button class="dropdown-btn" onclick="toggleDemo()">Demo</button>
+            <a href="https://discord.gg/df7ZZ4JJ" class="btn-link">Discord</a>
+            <a href="https://github.com/TAG-Research/lotus" class="btn-link">Github</a>
+            <a href="https://arxiv.org/pdf/2407.11418" class="btn-link">Paper</a>
+        </div>
     </div>
 
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-links">
                 <a href="https://github.com/TAG-Research/lotus">
-                    <img src="github-icon.png" alt="GitHub" width="24" height="24">
+                    <img src="github-icon.png" alt="GitHub" width="20" height="20">
                 </a>
                 <a href="https://arxiv.org/pdf/2407.11418">
-                    <img src="paper-icon.png" alt="Paper" width="24" height="24">
+                    <img src="paper-icon.png" alt="Paper" width="20" height="20">
                 </a>
                 <a href="https://discord.gg/df7ZZ4JJ">
-                    <img src="discord-icon.png" alt="Discord" width="24" height="24">
+                    <img src="discord-icon.png" alt="Discord" width="20" height="20">
                 </a>
             </div>
             <div class="navbar-logo">
