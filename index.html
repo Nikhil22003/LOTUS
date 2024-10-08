@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTUS: LLMs
-        Over Tables of Unstructured and Structured data</title>
+    <title>LOTUS: LLMs Over Tables of Unstructured and Structured data</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         :root {
@@ -71,10 +70,23 @@
             width: 24px;
             height: 24px;
         }
+        .navbar-links {
+            display: flex;
+        }
         .navbar-links a {
             margin-left: 12px;
             text-decoration: none;
-            color: white;
+            color: var(--fern-green);
+            background-color: white;
+            border-radius: 4px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-links img {
+            width: 20px;
+            height: 20px;
         }
         .btn-container {
             display: flex;
@@ -188,8 +200,7 @@
                     <img src="lotus.png" alt="Lotus Logo">
                 </div>
                 <div class="title">
-                    <h1>LOTUS: LLMs
-                        Over Tables of Unstructured and Structured data</h1>
+                    <h1>LOTUS: LLMs Over Tables of Unstructured and Structured data</h1>
                 </div>
             </div>
         </header>
@@ -207,19 +218,19 @@
 
     <nav class="navbar">
         <div class="container navbar-content">
-            <div class="navbar-links">
-                <a href="https://github.com/TAG-Research/lotus">
-                    <img src="github-icon.png" alt="GitHub" width="20" height="20">
-                </a>
-                <a href="https://arxiv.org/pdf/2407.11418">
-                    <img src="paper_icon.png" alt="Paper" width="20" height="20">
-                </a>
-                <a href="https://discord.gg/df7ZZ4JJ">
-                    <img src="discord-icon.png" alt="Discord" width="20" height="20">
-                </a>
-            </div>
             <div class="navbar-logo">
                 <img src="lotus.png" alt="Lotus Logo">
+            </div>
+            <div class="navbar-links">
+                <a href="https://github.com/TAG-Research/lotus">
+                    <img src="github-icon.png" alt="GitHub">
+                </a>
+                <a href="https://arxiv.org/pdf/2407.11418">
+                    <img src="paper_icon.png" alt="Paper">
+                </a>
+                <a href="https://discord.gg/df7ZZ4JJ">
+                    <img src="discord-icon.png" alt="Discord">
+                </a>
             </div>
         </div>
     </nav>
