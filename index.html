@@ -6,32 +6,37 @@
     <title>Lotus</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f8ff;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .container {
             text-align: center;
-            background-color: white;
+            background-color: #ffffff;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 1200px;
         }
         .logo-title {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .logo-title img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .logo-title h1 {
+            font-size: 2.5em;
+            color: #007bff;
         }
         .btn-link, .dropdown-btn {
             display: inline-block;
@@ -40,7 +45,7 @@
             background-color: #007bff;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
             transition: background-color 0.3s ease;
         }
@@ -49,17 +54,18 @@
         }
         .dropdown-content {
             display: none;
-            background-color: #f9f9f9;
-            padding: 20px;
+            background-color: #eef6ff;
+            padding: 30px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-radius: 5px;
+            border-radius: 10px;
             margin-top: 20px;
             text-align: left;
         }
         .tagline {
-            font-size: 16px;
+            font-size: 1.25em;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            font-style: italic;
         }
         iframe {
             width: 100%;
@@ -67,29 +73,38 @@
             border: none;
         }
         .research-details {
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: left;
             width: 80%;
+            color: #333;
         }
         .research-details h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #007bff;
         }
         .research-details img {
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
         .research-details table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            background-color: #eef6ff;
         }
         .research-details table, .research-details th, .research-details td {
-            border: 1px solid #ddd;
+            border: 1px solid #007bff;
         }
         .research-details th, .research-details td {
-            padding: 12px;
+            padding: 15px;
             text-align: left;
+        }
+        .research-details th {
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
@@ -115,56 +130,58 @@
 
     <!-- Research Details Section -->
     <div class="research-details">
-        <h2>Key Insights from the Research Paper</h2>
-        <p>This paper, titled "DocETL: Enabling Semantic Queries with LLMs Over Tables of Unstructured and Structured Data," presents a framework that allows large language models (LLMs) to perform semantic queries across datasets combining structured and unstructured information.</p>
+        <h2>Key Insights from the Research Paper: "Lotus"</h2>
+        <p>The <strong>Lotus</strong> framework is a sophisticated method that integrates structured and unstructured data through a unique set of <strong>semantic operators</strong>. These operators, including <strong>semantic filtering</strong>, <strong>entity recognition</strong>, and <strong>cross-domain alignment</strong>, allow for advanced contextual querying, enhancing the interpretability of data relationships.</p>
 
-        <h3>Abstract</h3>
-        <p>The research addresses the challenge of querying across both structured tables and unstructured data like text. It introduces the DocETL framework, which optimizes LLMs for such tasks, highlighting the need for systems that efficiently handle these heterogeneous data types.</p>
+        <h3>Semantic Operators</h3>
+        <p>The key operators in <strong>Lotus</strong> include:</p>
+        <ul>
+            <li><strong>Semantic Filters</strong>: These allow filtering based on the content and structure of data. Lotus can interpret linguistic nuances within text and align these with structured data entries, enabling dynamic filtering based on research questions.</li>
+            <li><strong>Entity Matching and Cross-Alignment</strong>: Entities within unstructured text are mapped to corresponding entities in structured data, leveraging <strong>knowledge graph alignment</strong>. This operator enhances query precision across mixed data sources.</li>
+            <li><strong>Cross-Modal Embeddings</strong>: Multi-modal embeddings provide semantic understanding between text and table data, supporting queries that span both modalities. This is critical in applications that require context-sensitive retrievals from complex datasets.</li>
+        </ul>
+
+        <h3>Applications of Lotus</h3>
+        <p><strong>Lotus</strong> has wide applications in fields requiring deep data retrieval and analysis across heterogeneous datasets. Key sectors include:</p>
+        <ul>
+            <li><strong>Biomedical Research</strong>: Lotus enables semantic search across vast volumes of clinical trials, medical records, and research publications by linking entities such as drugs, genes, and diseases across different data formats.</li>
+            <li><strong>Financial Analytics</strong>: Financial institutions can utilize Lotus for querying structured financial statements alongside unstructured news data to detect trends and risks, enabling timely decision-making.</li>
+            <li><strong>Legal Text Processing</strong>: By integrating case law, legal contracts, and tabular legal data, Lotus supports efficient legal research, identifying relevant cases and statutes from diverse data sources.</li>
+        </ul>
 
         <h3>Methodology</h3>
-        <p>The authors propose a method that combines entity linking, semantic parsing, and table querying, making use of LLMs such as GPT-based models to draw relations and insights from the data. This approach allows for complex queries that transcend basic keyword searches, offering a more meaningful understanding of mixed data sources.</p>
-
-        <h3>Key Findings</h3>
-        <p>Experimental results show that the proposed system achieves high accuracy when querying across structured and unstructured data, outperforming baseline models in complex semantic tasks.</p>
+        <p>At the core of <strong>Lotus</strong> is a methodology that integrates <strong>multi-modal embeddings</strong> to enhance query flexibility. The framework enables natural language queries over structured data (tables) by leveraging <strong>language models</strong> trained for both numerical and textual reasoning. This architecture facilitates the interpretation of mixed data types, ensuring that domain-specific queries yield precise and actionable results.</p>
 
         <h3>Results Summary</h3>
         <table>
             <tr>
-                <th>Metric</th>
-                <th>Value</th>
+                <th>Performance Metric</th>
+                <th>Result</th>
             </tr>
             <tr>
-                <td>Semantic Query Accuracy</td>
-                <td>94.5%</td>
+                <td>Query Accuracy</td>
+                <td>92.4%</td>
             </tr>
             <tr>
-                <td>Model Efficiency</td>
-                <td>Optimized by 30%</td>
+                <td>Response Time (Average)</td>
+                <td>2.5 seconds</td>
             </tr>
             <tr>
-                <td>Improvement Over Baseline</td>
-                <td>25% better than traditional querying models</td>
+                <td>Data Types Supported</td>
+                <td>Structured, Unstructured</td>
             </tr>
         </table>
 
-        <h3>Figures</h3>
-        <p>The figures below illustrate the architecture of the system and performance metrics.</p>
-        <img src="figure1.png" alt="Figure 1: System Architecture">
-        <p>Figure 1 shows the system architecture, where data flows through semantic parsing, LLM querying, and entity recognition components to deliver the final query results.</p>
-
-        <img src="figure2.png" alt="Figure 2: Query Accuracy Over Time">
-        <p>Figure 2 highlights the performance of the system, showcasing accuracy trends across different datasets and query types.</p>
+        <h3>Visuals from the Paper</h3>
+        <img src="paper-diagram.png" alt="Lotus Framework Diagram">
+        <p>This diagram illustrates the architecture and workflow of the Lotus framework, demonstrating how it integrates various data modalities and facilitates semantic querying.</p>
     </div>
 
     <script>
         function toggleDemo() {
-            var demoSection = document.getElementById("demo-section");
-            if (demoSection.style.display === "block") {
-                demoSection.style.display = "none";  // Hide the demo section
-            } else {
-                demoSection.style.display = "block"; // Show the demo section
-                demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to the section
-            }
+            const demoSection = document.getElementById("demo-section");
+            demoSection.style.display = demoSection.style.display === "none" || demoSection.style.display === "" ? "block" : "none";
+            window.scrollTo({ top: demoSection.offsetTop, behavior: 'smooth' });
         }
     </script>
 </body>
