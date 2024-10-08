@@ -3,39 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotus</title>
+    <title>LOTUS</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f8ff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .container {
-            text-align: center;
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-            width: 90%;
             max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .logo-title {
+        .header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 20px 0;
         }
-        .logo-title img {
+        .logo img {
             width: 50px;
             height: 50px;
-            margin-right: 15px;
         }
-        .logo-title h1 {
+        .title {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .title h1 {
             font-size: 2.5em;
+            color: #007bff;
+        }
+        .tagline {
+            font-size: 1.25em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .navbar-logo img {
+            width: 30px;
+            height: 30px;
+        }
+        .navbar-links a {
+            margin-left: 15px;
+            text-decoration: none;
             color: #007bff;
         }
         .btn-link, .dropdown-btn {
@@ -59,13 +87,6 @@
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
             border-radius: 10px;
             margin-top: 20px;
-            text-align: left;
-        }
-        .tagline {
-            font-size: 1.25em;
-            color: #555;
-            margin-bottom: 35px;
-            font-style: italic;
         }
         iframe {
             width: 100%;
@@ -74,8 +95,6 @@
         }
         .research-details {
             margin-top: 50px;
-            text-align: left;
-            width: 80%;
             color: #333;
         }
         .research-details h2 {
@@ -106,14 +125,47 @@
             background-color: #007bff;
             color: white;
         }
+        .contact-section {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .contact-section h2 {
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: white;
+            color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo-title">
-            <img src="lotus.png" alt="Lotus Logo">
-            <h1>Lotus</h1>
-        </div>
+        <header class="header">
+            <div class="title">
+                <h1>LOTUS</h1>
+            </div>
+            <div class="logo">
+                <img src="lotus.png" alt="Lotus Logo">
+            </div>
+        </header>
+        
         <p class="tagline">Enabling Semantic Queries with LLMs Over Tables of Unstructured and Structured Data</p>
 
         <!-- Links -->
@@ -123,66 +175,93 @@
         <a href="https://arxiv.org/pdf/2407.11418" class="btn-link">Paper</a>
     </div>
 
-    <!-- Demo Section -->
-    <div id="demo-section" class="dropdown-content">
-        <iframe src="http://localhost:7860" title="Demo App"></iframe>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-links">
+                <a href="https://github.com/TAG-Research/lotus">
+                    <img src="github-icon.png" alt="GitHub" width="24" height="24">
+                </a>
+                <a href="https://arxiv.org/pdf/2407.11418">
+                    <img src="paper-icon.png" alt="Paper" width="24" height="24">
+                </a>
+                <a href="https://discord.gg/df7ZZ4JJ">
+                    <img src="discord-icon.png" alt="Discord" width="24" height="24">
+                </a>
+            </div>
+            <div class="navbar-logo">
+                <img src="lotus.png" alt="Lotus Logo">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Demo Section -->
+        <div id="demo-section" class="dropdown-content">
+            <iframe src="http://localhost:7860" title="Demo App"></iframe>
+        </div>
+
+        <!-- Research Details Section -->
+        <div class="research-details">
+            <h2>Key Insights</h2>
+            <p>The <strong>Lotus</strong> framework is a sophisticated method that integrates structured and unstructured data through a unique set of <strong>semantic operators</strong>. These operators, including <strong>semantic filtering</strong>, <strong>entity recognition</strong>, and <strong>cross-domain alignment</strong>, allow for advanced contextual querying, enhancing the interpretability of data relationships.</p>
+
+            <h3>Semantic Operators</h3>
+            <p>The key operators in <strong>Lotus</strong> include:</p>
+            <ul>
+                <li><strong>Semantic Filters</strong>: These allow filtering based on the content and structure of data. Lotus can interpret linguistic nuances within text and align these with structured data entries, enabling dynamic filtering based on research questions.</li>
+                <li><strong>Entity Matching and Cross-Alignment</strong>: Entities within unstructured text are mapped to corresponding entities in structured data, leveraging <strong>knowledge graph alignment</strong>. This operator enhances query precision across mixed data sources.</li>
+                <li><strong>Cross-Modal Embeddings</strong>: Multi-modal embeddings provide semantic understanding between text and table data, supporting queries that span both modalities. This is critical in applications that require context-sensitive retrievals from complex datasets.</li>
+            </ul>
+
+            <h3>Applications of Lotus</h3>
+            <p><strong>Lotus</strong> has wide applications in fields requiring deep data retrieval and analysis across heterogeneous datasets. Key sectors include:</p>
+            <ul>
+                <li><strong>Biomedical Research</strong>: Lotus enables semantic search across vast volumes of clinical trials, medical records, and research publications by linking entities such as drugs, genes, and diseases across different data formats.</li>
+                <li><strong>Financial Analytics</strong>: Financial institutions can utilize Lotus for querying structured financial statements alongside unstructured news data to detect trends and risks, enabling timely decision-making.</li>
+                <li><strong>Legal Text Processing</strong>: By integrating case law, legal contracts, and tabular legal data, Lotus supports efficient legal research, identifying relevant cases and statutes from diverse data sources.</li>
+            </ul>
+
+            <h3>Methodology</h3>
+            <p>At the core of <strong>Lotus</strong> is a methodology that integrates <strong>multi-modal embeddings</strong> to enhance query flexibility. The framework enables natural language queries over structured data (tables) by leveraging <strong>language models</strong> trained for both numerical and textual reasoning. This architecture facilitates the interpretation of mixed data types, ensuring that domain-specific queries yield precise and actionable results.</p>
+
+            <h3>Results Summary</h3>
+            <table>
+                <tr>
+                    <th>Performance Metric</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>Query Accuracy</td>
+                    <td>92.4%</td>
+                </tr>
+                <tr>
+                    <td>Response Time (Average)</td>
+                    <td>2.5 seconds</td>
+                </tr>
+                <tr>
+                    <td>Data Types Supported</td>
+                    <td>Structured, Unstructured</td>
+                </tr>
+            </table>
+
+            <h3>Visuals from the Paper</h3>
+            <img src="paper-diagram.png" alt="Lotus Framework Diagram">
+            <p>Accuracy versus execution time (log-scale) for 3 short LOTUS programs, shown as Program A, B, and C, which implement distinct query pipelines for fact-checking on the FEVER dataset</p>
+        </div>
     </div>
 
-    <!-- Research Details Section -->
-    <div class="research-details">
-        <h2>Key Insights</h2>
-        <p>The <strong>Lotus</strong> framework is a sophisticated method that integrates structured and unstructured data through a unique set of <strong>semantic operators</strong>. These operators, including <strong>semantic filtering</strong>, <strong>entity recognition</strong>, and <strong>cross-domain alignment</strong>, allow for advanced contextual querying, enhancing the interpretability of data relationships.</p>
-
-        <h3>Semantic Operators</h3>
-        <p>The key operators in <strong>Lotus</strong> include:</p>
-        <ul>
-            <li><strong>Semantic Filters</strong>: These allow filtering based on the content and structure of data. Lotus can interpret linguistic nuances within text and align these with structured data entries, enabling dynamic filtering based on research questions.</li>
-            <li><strong>Entity Matching and Cross-Alignment</strong>: Entities within unstructured text are mapped to corresponding entities in structured data, leveraging <strong>knowledge graph alignment</strong>. This operator enhances query precision across mixed data sources.</li>
-            <li><strong>Cross-Modal Embeddings</strong>: Multi-modal embeddings provide semantic understanding between text and table data, supporting queries that span both modalities. This is critical in applications that require context-sensitive retrievals from complex datasets.</li>
-        </ul>
-
-        <h3>Applications of Lotus</h3>
-        <p><strong>Lotus</strong> has wide applications in fields requiring deep data retrieval and analysis across heterogeneous datasets. Key sectors include:</p>
-        <ul>
-            <li><strong>Biomedical Research</strong>: Lotus enables semantic search across vast volumes of clinical trials, medical records, and research publications by linking entities such as drugs, genes, and diseases across different data formats.</li>
-            <li><strong>Financial Analytics</strong>: Financial institutions can utilize Lotus for querying structured financial statements alongside unstructured news data to detect trends and risks, enabling timely decision-making.</li>
-            <li><strong>Legal Text Processing</strong>: By integrating case law, legal contracts, and tabular legal data, Lotus supports efficient legal research, identifying relevant cases and statutes from diverse data sources.</li>
-        </ul>
-
-        <h3>Methodology</h3>
-        <p>At the core of <strong>Lotus</strong> is a methodology that integrates <strong>multi-modal embeddings</strong> to enhance query flexibility. The framework enables natural language queries over structured data (tables) by leveraging <strong>language models</strong> trained for both numerical and textual reasoning. This architecture facilitates the interpretation of mixed data types, ensuring that domain-specific queries yield precise and actionable results.</p>
-
-        <h3>Results Summary</h3>
-        <table>
-            <tr>
-                <th>Performance Metric</th>
-                <th>Result</th>
-            </tr>
-            <tr>
-                <td>Query Accuracy</td>
-                <td>92.4%</td>
-            </tr>
-            <tr>
-                <td>Response Time (Average)</td>
-                <td>2.5 seconds</td>
-            </tr>
-            <tr>
-                <td>Data Types Supported</td>
-                <td>Structured, Unstructured</td>
-            </tr>
-        </table>
-
-        <h3>Visuals from the Paper</h3>
-        <img src="paper-diagram.png" alt="Lotus Framework Diagram">
-        <p>LOTUS’
-            programs can reproduce FacTool, recent state-of-the-art pipeline,
-            in few lines of code, and implement a new pipeline with a simple change of operators that improves accuracy by 9.5%, while
-            offering 7 − 34× lower execution time. In the extreme multi-label
-            classification task on the BioDEX dataset, LOTUS reproduces stateof-the art result quality with its join operator, while providing an
-            efficient algorithm that runs 800× faster than a naive join. In the
-            search and ranking application, LOTUS allows a simple composition of operators to achieve 5.9 − 49.4% higher nDCG@10 than
-            the vanilla retriever and re-ranker, while also providing query efficiency, with 1.67 − 10× lower execution time than LM-based ranking methods used by prior works.</p>
-    </div>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <script>
         function toggleDemo() {
@@ -190,6 +269,18 @@
             demoSection.style.display = demoSection.style.display === "none" || demoSection.style.display === "" ? "block" : "none";
             window.scrollTo({ top: demoSection.offsetTop, behavior: 'smooth' });
         }
+
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar');
+            var header = document.querySelector('.header');
+            var headerBottom = header.offsetTop + header.offsetHeight;
+
+            if (window.pageYOffset > headerBottom) {
+                navbar.style.display = 'block';
+            } else {
+                navbar.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
