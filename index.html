@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTUS</title>
+    <title>LOTUS: LLMs
+        Over Tables of Unstructured and Structured data</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         :root {
@@ -15,83 +16,130 @@
             margin: 0;
             padding: 0;
             background-color: var(--light-fern);
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 62.5%;
         }
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box;
+            padding: 16px;
         }
         .header {
-            background-color: var(--fern-green);
-            padding: 20px 0;
-            text-align: center;
-        }
-        .logo-title {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 16px 0 8px;
+            background-color: var(--fern-green);
+        }
+        .logo-title {
+            display: flex;
+            align-items: center;
         }
         .logo img {
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
         }
         .title h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             color: white;
             margin: 0;
         }
         .tagline {
-            font-size: 1.2em;
+            font-size: 1em;
             color: var(--fern-green);
             text-align: center;
-            margin: 20px 0;
+            margin: 8px 0 20px;
             font-style: italic;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--fern-green);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+        }
+        .navbar-logo img {
+            width: 24px;
+            height: 24px;
+        }
+        .navbar-links a {
+            margin-left: 12px;
+            text-decoration: none;
+            color: white;
         }
         .btn-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 20px 0;
         }
         .btn-link, .dropdown-btn {
             display: inline-block;
-            padding: 12px 24px;
-            margin: 10px;
+            padding: 12px 20px;
+            margin: 8px;
             background-color: var(--fern-green);
             color: white;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 0.9em;
             transition: background-color 0.3s ease;
         }
         .btn-link:hover, .dropdown-btn:hover {
             background-color: #5A8E4C;
         }
+        .dropdown-content {
+            display: none;
+            background-color: var(--light-fern);
+            padding: 24px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+        }
         .research-details {
             margin-top: 40px;
+            color: #333;
+            font-size: 0.9em;
         }
         .research-details h2 {
-            font-size: 2em;
+            font-size: 1.8em;
+            margin-bottom: 16px;
             color: var(--fern-green);
-            margin-bottom: 20px;
         }
         .research-details h3 {
-            font-size: 1.5em;
+            font-size: 1.4em;
             color: var(--fern-green);
-            margin-top: 30px;
+        }
+        .research-details img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin-bottom: 20px;
+            border: 1px solid var(--fern-green);
+            border-radius: 6px;
         }
         .research-details table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
+            background-color: var(--light-fern);
+        }
+        .research-details table, .research-details th, .research-details td {
+            border: 1px solid var(--fern-green);
         }
         .research-details th, .research-details td {
-            border: 1px solid var(--fern-green);
             padding: 12px;
             text-align: left;
         }
@@ -104,28 +152,31 @@
             color: white;
             padding: 40px 0;
             text-align: center;
-            margin-top: 40px;
+        }
+        .contact-section h2 {
+            margin-bottom: 16px;
+            font-size: 1.6em;
         }
         .contact-form {
-            max-width: 500px;
+            max-width: 300px;
             margin: 0 auto;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 2px;
+            margin-bottom: 6px;
             border: none;
-            border-radius: 4px;
-            font-size: 1em;
+            border-radius: 2px;
+            font-size: 0.9em;
         }
         .contact-form button {
             background-color: white;
             color: var(--fern-green);
             border: none;
-            padding: 12px 24px;
+            padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 0.9em;
         }
     </style>
 </head>
