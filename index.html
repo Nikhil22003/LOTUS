@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOTUS</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         :root {
-            --fern-green: #4F7942;
+            --fern-green: #6A9E5C;
             --light-fern: #E6F0E2;
         }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--light-fern);
-            font-size: 62.5%; /* This sets 1em to 10px */
+            font-size: 62.5%;
         }
         .container {
             max-width: 960px;
@@ -39,7 +40,7 @@
         }
         .title h1 {
             font-size: 2em;
-            color: black;
+            color: white;
             margin: 0;
         }
         .tagline {
@@ -91,7 +92,7 @@
             transition: background-color 0.3s ease;
         }
         .btn-link:hover, .dropdown-btn:hover {
-            background-color: #3A5A31;
+            background-color: #5A8E4C;
         }
         .dropdown-content {
             display: none;
@@ -123,6 +124,7 @@
         .research-details img {
             width: 100%;
             max-width: 600px;
+            height: auto;
             margin-bottom: 20px;
             border: 1px solid var(--fern-green);
             border-radius: 6px;
@@ -155,7 +157,7 @@
             font-size: 1.6em;
         }
         .contact-form {
-            max-width: 400px;
+            max-width: 300px;
             margin: 0 auto;
         }
         .contact-form input, .contact-form textarea {
