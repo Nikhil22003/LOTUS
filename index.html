@@ -52,11 +52,14 @@
             font-style: italic;
         }
         .navbar {
-            position: sticky;
-            top: 0;
+            position: fixed;
+            top: -60px;
+            left: 0;
+            right: 0;
             background-color: var(--fern-green);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 1000;
+            transition: top 0.3s;
         }
         .navbar-content {
             display: flex;
@@ -65,8 +68,8 @@
             padding: 10px 0;
         }
         .navbar-logo img {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
         }
         .navbar-links {
             display: flex;
@@ -328,16 +331,25 @@
             window.scrollTo({ top: demoSection.offsetTop, behavior: 'smooth' });
         }
 
+        let lastScrollTop = 0;
         window.addEventListener('scroll', function() {
             var navbar = document.querySelector('.navbar');
             var header = document.querySelector('.header');
             var headerBottom = header.offsetTop + header.offsetHeight;
+            var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (window.pageYOffset > headerBottom) {
-                navbar.style.display = 'block';
+            if (currentScrollTop > headerBottom) {
+                if (currentScrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.style.top = '-60px';
+                } else {
+                    // Scrolling up
+                    navbar.style.top = '0';
+                }
             } else {
-                navbar.style.display = 'none';
+                navbar.style.top = '-60px';
             }
+            lastScrollTop = currentScrollTop;
         });
     </script>
 </body>
