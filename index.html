@@ -282,8 +282,9 @@
                 <li><strong>Semantic Map</strong>: Perform a natural language projection over an existing column to output a new column. Example: "Extract the main hypothesis from each paper abstract."</li>
             </ul>
             
-            <p>These operators can be combined to create complex query pipelines. Figure 2 in the paper demonstrates a LOTUS program that uses these operators to search for relevant papers, filter them based on performance criteria, and generate a summary.</p>
-            
+            <p>These operators can be combined to create complex query pipelines as seen in Figure 1 below that demonstrates a LOTUS program that uses these operators to search for relevant papers, filter them based on performance criteria, and generate a summary.</p>
+            <img src="lotus-diagram.png" alt="LOTUS Performance Diagram">
+
             <h3>Applications of LOTUS</h3>
             <p>LOTUS is designed for applications requiring complex reasoning over large amounts of data. Key applications demonstrated in the paper include:</p>
             <ul>
@@ -301,9 +302,7 @@
                 <li><strong>Join Algorithms</strong>: The system implements multiple join algorithms, including nested-loop, map-search-filter, and search-filter patterns, choosing the most efficient based on the query and data characteristics.</li>
                 <li><strong>Aggregation Strategies</strong>: For semantic aggregations, LOTUS uses hierarchical and partitioned aggregation patterns to handle large datasets efficiently.</li>
             </ul>
-            
-            <p>Figure 3 in the paper illustrates different semantic join algorithms, while Figure 4 demonstrates the impact of partitioned semantic aggregation on result quality for summarizing ArXiv paper abstracts.</p>
-            
+                        
             <h3>Detailed Results Summary</h3>
             <table>
                 <tr>
@@ -339,7 +338,7 @@
             
             <h3>Key Figure from the Paper</h3>
             <img src="paper-diagram.png" alt="LOTUS Performance Diagram">
-            <p>Figure 1: Accuracy versus execution time (log-scale) for 3 LOTUS programs (A, B, and C) implementing distinct query pipelines for fact-checking on the FEVER dataset. The blue star shows performance with LOTUS optimizations applied to Program B. This figure demonstrates how LOTUS achieves both high accuracy and low execution time compared to baseline methods.</p>
+            <p>Figure 2: Accuracy versus execution time (log-scale) for 3 LOTUS programs (A, B, and C) implementing distinct query pipelines for fact-checking on the FEVER dataset. The blue star shows performance with LOTUS optimizations applied to Program B. This figure demonstrates how LOTUS achieves both high accuracy and low execution time compared to baseline methods.</p>
         </div>
     </div>
 
