@@ -267,47 +267,55 @@
             <p>The <strong>Lotus</strong> framework is a sophisticated method that integrates structured and unstructured data through a unique set of <strong>semantic operators</strong>. These operators, including <strong>semantic filtering</strong>, <strong>entity recognition</strong>, and <strong>cross-domain alignment</strong>, allow for advanced contextual querying, enhancing the interpretability of data relationships.</p>
 
             <h3>Semantic Operators</h3>
-            <p>The key operators in <strong>Lotus</strong> include:</p>
+            <p>LOTUS provides the following key semantic operators[1]:</p>
             <ul>
-                <li><strong>Semantic Filters</strong>: These allow filtering based on the content and structure of data. Lotus can interpret linguistic nuances within text and align these with structured data entries, enabling dynamic filtering based on research questions.</li>
-                <li><strong>Entity Matching and Cross-Alignment</strong>: Entities within unstructured text are mapped to corresponding entities in structured data, leveraging <strong>knowledge graph alignment</strong>. This operator enhances query precision across mixed data sources.</li>
-                <li><strong>Cross-Modal Embeddings</strong>: Multi-modal embeddings provide semantic understanding between text and table data, supporting queries that span both modalities. This is critical in applications that require context-sensitive retrievals from complex datasets.</li>
+                <li><strong>Semantic Filters</strong>: Return a subset of rows that pass a filtering condition specified by a natural language predicate.</li>
+                <li><strong>Semantic Joins</strong>: Combine data from two tables by evaluating a user-defined natural language predicate.</li>
+                <li><strong>Semantic Top-K</strong>: Rank a set of rows according to user-defined criteria and return the K best matches.</li>
+                <li><strong>Semantic Aggregations</strong>: Perform aggregations over all rows of a table using a commutative and associative natural language function.</li>
+                <li><strong>Semantic Map</strong>: Perform a natural language projection over an existing column to output a new column.</li>
             </ul>
 
-            <h3>Applications of Lotus</h3>
-            <p><strong>Lotus</strong> has wide applications in fields requiring deep data retrieval and analysis across heterogeneous datasets. Key sectors include:</p>
+            <h3>Applications of LOTUS</h3>
+            <p>LOTUS is designed for applications requiring complex reasoning over large amounts of data. Key applications demonstrated in the paper include[1]:</p>
             <ul>
-                <li><strong>Biomedical Research</strong>: Lotus enables semantic search across vast volumes of clinical trials, medical records, and research publications by linking entities such as drugs, genes, and diseases across different data formats.</li>
-                <li><strong>Financial Analytics</strong>: Financial institutions can utilize Lotus for querying structured financial statements alongside unstructured news data to detect trends and risks, enabling timely decision-making.</li>
-                <li><strong>Legal Text Processing</strong>: By integrating case law, legal contracts, and tabular legal data, Lotus supports efficient legal research, identifying relevant cases and statutes from diverse data sources.</li>
+                <li><strong>Fact-checking</strong>: LOTUS implements state-of-the-art fact-checking pipelines with improved accuracy and efficiency.</li>
+                <li><strong>Extreme Multi-label Classification</strong>: LOTUS reproduces state-of-the-art results for tasks like biomedical literature classification.</li>
+                <li><strong>Search and Ranking</strong>: LOTUS enables efficient composition of retrieval and re-ranking operations for improved search quality.</li>
             </ul>
 
             <h3>Methodology</h3>
-            <p>At the core of <strong>Lotus</strong> is a methodology that integrates <strong>multi-modal embeddings</strong> to enhance query flexibility. The framework enables natural language queries over structured data (tables) by leveraging <strong>language models</strong> trained for both numerical and textual reasoning. This architecture facilitates the interpretation of mixed data types, ensuring that domain-specific queries yield precise and actionable results.</p>
+            <p>LOTUS provides a high-level declarative interface for specifying semantic operations using natural language expressions. The system's query engine efficiently executes these operations using various algorithms and optimizations, including[1]:</p>
+            <ul>
+                <li>Maximizing parallel batched-inference opportunities</li>
+                <li>Using model cascades with lightweight scoring functions</li>
+                <li>Leveraging semantic similarity indices</li>
+                <li>Performing algorithmic approximations for expensive operations</li>
+            </ul>
 
             <h3>Results Summary</h3>
             <table>
                 <tr>
-                    <th>Performance Metric</th>
+                    <th>Task</th>
                     <th>Result</th>
                 </tr>
                 <tr>
-                    <td>Query Accuracy</td>
-                    <td>92.4%</td>
+                    <td>Fact-checking (FEVER dataset)</td>
+                    <td>9.5% accuracy improvement, 7-34× lower execution time compared to state-of-the-art[1]</td>
                 </tr>
                 <tr>
-                    <td>Response Time (Average)</td>
-                    <td>2.5 seconds</td>
+                    <td>Extreme Multi-label Classification (BioDEX dataset)</td>
+                    <td>State-of-the-art quality with 800× lower execution time[1]</td>
                 </tr>
                 <tr>
-                    <td>Data Types Supported</td>
-                    <td>Structured, Unstructured</td>
+                    <td>Search and Ranking</td>
+                    <td>5.9-49.4% higher nDCG@10, 1.67-10× lower execution time than baseline methods[1]</td>
                 </tr>
             </table>
 
-            <h3>Visuals from the Paper</h3>
-            <img src="paper-diagram.png" alt="Lotus Framework Diagram">
-            <p>Accuracy versus execution time (log-scale) for 3 short LOTUS programs, shown as Program A, B, and C, which implement distinct query pipelines for fact-checking on the FEVER dataset</p>
+            <h3>Visual from the Paper</h3>
+            <img src="paper-diagram.png" alt="LOTUS Performance Diagram">
+            <p>Figure 1: Accuracy versus execution time (log-scale) for 3 LOTUS programs (A, B, and C) implementing distinct query pipelines for fact-checking on the FEVER dataset. The blue star shows performance with LOTUS optimizations applied to Program B[1].</p>
         </div>
     </div>
 
