@@ -265,35 +265,46 @@
         <div class="research-details">
             <h2>Key Insights</h2>
             <p>The <strong>Lotus</strong> framework is a sophisticated method that integrates structured and unstructured data through a unique set of <strong>semantic operators</strong>. These operators, including <strong>semantic filtering</strong>, <strong>entity recognition</strong>, and <strong>cross-domain alignment</strong>, allow for advanced contextual querying, enhancing the interpretability of data relationships.</p>
-
+            <p>The system addresses key challenges in using large language models (LLMs) for data processing tasks, including:</p>
+            <ul>
+                <li>Efficient execution of LLM-based operations over large datasets</li>
+                <li>Composition of multiple LLM calls into complex pipelines</li>
+                <li>Abstraction of low-level details like model context length limits and algorithm choices</li>
+            </ul>
+            
             <h3>Semantic Operators</h3>
-            <p>LOTUS provides the following key semantic operators[1]:</p>
+            <p>LOTUS provides the following key semantic operators:</p>
             <ul>
-                <li><strong>Semantic Filters</strong>: Return a subset of rows that pass a filtering condition specified by a natural language predicate.</li>
-                <li><strong>Semantic Joins</strong>: Combine data from two tables by evaluating a user-defined natural language predicate.</li>
-                <li><strong>Semantic Top-K</strong>: Rank a set of rows according to user-defined criteria and return the K best matches.</li>
-                <li><strong>Semantic Aggregations</strong>: Perform aggregations over all rows of a table using a commutative and associative natural language function.</li>
-                <li><strong>Semantic Map</strong>: Perform a natural language projection over an existing column to output a new column.</li>
+                <li><strong>Semantic Filters</strong>: Return a subset of rows that pass a filtering condition specified by a natural language predicate. For example: "Keep papers that propose a new machine learning algorithm."</li>
+                <li><strong>Semantic Joins</strong>: Combine data from two tables by evaluating a user-defined natural language predicate. For instance: "Join if the paper's findings support the given hypothesis."</li>
+                <li><strong>Semantic Top-K</strong>: Rank a set of rows according to user-defined criteria and return the K best matches. Example: "Return the top 5 most relevant papers to the given research question."</li>
+                <li><strong>Semantic Aggregations</strong>: Perform aggregations over all rows of a table using a commutative and associative natural language function. For example: "Summarize the key findings across all papers in the group."</li>
+                <li><strong>Semantic Map</strong>: Perform a natural language projection over an existing column to output a new column. Example: "Extract the main hypothesis from each paper abstract."</li>
             </ul>
-
+            
+            <p>These operators can be combined to create complex query pipelines. Figure 2 in the paper demonstrates a LOTUS program that uses these operators to search for relevant papers, filter them based on performance criteria, and generate a summary.</p>
+            
             <h3>Applications of LOTUS</h3>
-            <p>LOTUS is designed for applications requiring complex reasoning over large amounts of data. Key applications demonstrated in the paper include[1]:</p>
+            <p>LOTUS is designed for applications requiring complex reasoning over large amounts of data. Key applications demonstrated in the paper include:</p>
             <ul>
-                <li><strong>Fact-checking</strong>: LOTUS implements state-of-the-art fact-checking pipelines with improved accuracy and efficiency.</li>
-                <li><strong>Extreme Multi-label Classification</strong>: LOTUS reproduces state-of-the-art results for tasks like biomedical literature classification.</li>
-                <li><strong>Search and Ranking</strong>: LOTUS enables efficient composition of retrieval and re-ranking operations for improved search quality.</li>
+                <li><strong>Fact-checking</strong>: LOTUS implements state-of-the-art fact-checking pipelines with improved accuracy and efficiency. The paper demonstrates how LOTUS can reproduce and improve upon the FacTool pipeline for the FEVER dataset.</li>
+                <li><strong>Extreme Multi-label Classification</strong>: LOTUS reproduces state-of-the-art results for tasks like biomedical literature classification. The paper shows how LOTUS can efficiently classify papers in the BioDEX dataset.</li>
+                <li><strong>Search and Ranking</strong>: LOTUS enables efficient composition of retrieval and re-ranking operations for improved search quality. The paper demonstrates this on the MS MARCO passage ranking task.</li>
             </ul>
-
-            <h3>Methodology</h3>
-            <p>LOTUS provides a high-level declarative interface for specifying semantic operations using natural language expressions. The system's query engine efficiently executes these operations using various algorithms and optimizations, including[1]:</p>
+            
+            <h3>Methodology and Implementation</h3>
+            <p>LOTUS provides a high-level declarative interface for specifying semantic operations using natural language expressions. The system's query engine efficiently executes these operations using various algorithms and optimizations:</p>
             <ul>
-                <li>Maximizing parallel batched-inference opportunities</li>
-                <li>Using model cascades with lightweight scoring functions</li>
-                <li>Leveraging semantic similarity indices</li>
-                <li>Performing algorithmic approximations for expensive operations</li>
+                <li><strong>Parallel Batched Inference</strong>: LOTUS uses vLLM for efficient batched inference, allowing it to process multiple inputs simultaneously.</li>
+                <li><strong>Model Cascades</strong>: For operations like semantic filtering and top-k, LOTUS employs a cascade of models, starting with lightweight scoring functions based on log-probabilities of generated tokens.</li>
+                <li><strong>Semantic Similarity Indices</strong>: LOTUS leverages FAISS for efficient vector similarity search, enhancing performance for operations like semantic joins and search.</li>
+                <li><strong>Join Algorithms</strong>: The system implements multiple join algorithms, including nested-loop, map-search-filter, and search-filter patterns, choosing the most efficient based on the query and data characteristics.</li>
+                <li><strong>Aggregation Strategies</strong>: For semantic aggregations, LOTUS uses hierarchical and partitioned aggregation patterns to handle large datasets efficiently.</li>
             </ul>
-
-            <h3>Results Summary</h3>
+            
+            <p>Figure 3 in the paper illustrates different semantic join algorithms, while Figure 4 demonstrates the impact of partitioned semantic aggregation on result quality for summarizing ArXiv paper abstracts.</p>
+            
+            <h3>Detailed Results Summary</h3>
             <table>
                 <tr>
                     <th>Task</th>
@@ -301,21 +312,34 @@
                 </tr>
                 <tr>
                     <td>Fact-checking (FEVER dataset)</td>
-                    <td>9.5% accuracy improvement, 7-34× lower execution time compared to state-of-the-art[1]</td>
+                    <td>
+                        - 9.5% accuracy improvement over FacTool (state-of-the-art)<br>
+                        - 7-34× lower execution time<br>
+                        - Best LOTUS program (B) achieved 80.3% label accuracy and 77.8% full accuracy<br>
+                        - With optimizations, Program B achieved 2.5% higher accuracy and 2× faster execution
+                    </td>
                 </tr>
                 <tr>
                     <td>Extreme Multi-label Classification (BioDEX dataset)</td>
-                    <td>State-of-the-art quality with 800× lower execution time[1]</td>
+                    <td>
+                        - Reproduced state-of-the-art result quality (0.9 R@10)<br>
+                        - 800× lower execution time than naive join implementation<br>
+                        - Efficient algorithm processed 4.5M label-document pairs in 1.7 hours
+                    </td>
                 </tr>
                 <tr>
-                    <td>Search and Ranking</td>
-                    <td>5.9-49.4% higher nDCG@10, 1.67-10× lower execution time than baseline methods[1]</td>
+                    <td>Search and Ranking (MS MARCO)</td>
+                    <td>
+                        - 5.9-49.4% higher nDCG@10 than vanilla retriever and re-ranker methods<br>
+                        - 1.67-10× lower execution time than LM-based ranking methods used in prior works<br>
+                        - Best LOTUS program achieved nDCG@10 of 0.519, outperforming baseline methods
+                    </td>
                 </tr>
             </table>
-
-            <h3>Visual from the Paper</h3>
+            
+            <h3>Key Figure from the Paper</h3>
             <img src="paper-diagram.png" alt="LOTUS Performance Diagram">
-            <p>Figure 1: Accuracy versus execution time (log-scale) for 3 LOTUS programs (A, B, and C) implementing distinct query pipelines for fact-checking on the FEVER dataset. The blue star shows performance with LOTUS optimizations applied to Program B[1].</p>
+            <p>Figure 1: Accuracy versus execution time (log-scale) for 3 LOTUS programs (A, B, and C) implementing distinct query pipelines for fact-checking on the FEVER dataset. The blue star shows performance with LOTUS optimizations applied to Program B. This figure demonstrates how LOTUS achieves both high accuracy and low execution time compared to baseline methods.</p>
         </div>
     </div>
 
